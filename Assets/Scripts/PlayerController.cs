@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             // Debug.Log("Game Over!");
             WinLoseBG.gameObject.SetActive(true);
-            WinLoseText.gameObject.SetActive(true);
+            //WinLoseText.gameObject.SetActive(true);
             WinLoseText.text = "Game Over!";
             WinLoseText.color = Color.white;
             WinLoseBG.color = Color.red;
