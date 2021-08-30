@@ -10,11 +10,16 @@ public class PlayerController : MonoBehaviour
 	public int score = 0;
 	public int health = 5;
 	public float speed = 5.0F;
+	public Image endScreen;
+    public Text endText;
+    public Text scoreText;
+    public Text healthText;
 
 	public Rigidbody rb;
 
 	void Start()
 	{
+		SetHealthText();
 		rb = GetComponent<Rigidbody>();
 	}
 
@@ -66,7 +71,8 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Goal"))
         {
-            Debug.Log("You win!");
+            SetWin();
+			// Debug.Log("You win!");
         }
     }
 
@@ -78,5 +84,14 @@ public class PlayerController : MonoBehaviour
 	void SetHealthText()
     {
         healthText.text = $"Health: {health}";
+    }
+
+	void SetWin()
+    {
+        endScreen.gameObject.SetActive(true);
+        endScreen.color = Color.green;
+        endText.text = "You Win!";
+        endText.color = Color.black;
+        StartCoroutine(LoadScene(3.0F));
     }
 }
