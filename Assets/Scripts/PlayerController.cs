@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary> Starts up the Player </summary>
 public class PlayerController : MonoBehaviour
@@ -60,7 +61,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Trap"))
         {
             health--;
-            Debug.Log($"Health: {health}");
+			SetHealthText();
+            // Debug.Log($"Health: {health}");
         }
         if (other.gameObject.CompareTag("Goal"))
         {
@@ -72,4 +74,9 @@ public class PlayerController : MonoBehaviour
 	{
 		scoreText.text = $"Score: {score}";
 	}
+
+	void SetHealthText()
+    {
+        healthText.text = $"Health: {health}";
+    }
 }
