@@ -53,8 +53,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             score++;
-            Debug.Log($"Score: {score}");
-            Destroy(other.gameObject);
+            // Debug.Log($"Score: {score}");
+			SetScoreText();
+			Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Trap"))
         {
@@ -65,5 +66,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("You win!");
         }
-    } 
+    }
+
+	void SetScoreText()
+	{
+		scoreText.text = $"Score: {score}";
+	}
 }
