@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Text endText;
     public Text scoreText;
     public Text healthText;
+	public Text WinLoseBG;
+	public Text WinLoseText;
 
 	public Rigidbody rb;
 
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             // Debug.Log("Game Over!");
             WinLoseBG.gameObject.SetActive(true);
-            //WinLoseText.gameObject.SetActive(true);
+            WinLoseText.gameObject.SetActive(true);
             WinLoseText.text = "Game Over!";
             WinLoseText.color = Color.white;
             WinLoseBG.color = Color.red;
