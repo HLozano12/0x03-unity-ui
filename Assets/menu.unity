@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74811935}
+  - component: {fileID: 74811936}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -161,6 +162,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &74811936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74811934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d10e4a240712224197c96afbaea734f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapMat: {fileID: 2100000, guid: 0e69f9933b36f2046a4103e2189b604c, type: 2}
+  goalMat: {fileID: 2100000, guid: 2655e0c317291c746813b34227865764, type: 2}
+  colorblindMode: {fileID: 1531134408}
+  playButton: {fileID: 387791590}
+  quitButton: {fileID: 1186885729}
 --- !u!1 &229146171
 GameObject:
   m_ObjectHideFlags: 0
