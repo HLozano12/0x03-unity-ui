@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Text endText;
     public Text scoreText;
     public Text healthText;
-	public Text WinLoseBG;
+	public Image WinLoseBG;
 	public Text WinLoseText;
 
 	public Rigidbody rb;
