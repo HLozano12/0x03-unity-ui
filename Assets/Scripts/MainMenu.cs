@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public Material trapMat;
     public Material goalMat;
     public Toggle colorblindMode;
+	public Button playButton;
+	public Button quitButton;
 
     public void PlayMaze()
     {
