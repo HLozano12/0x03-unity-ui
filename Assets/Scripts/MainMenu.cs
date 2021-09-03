@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-
     public Material trapMat;
     public Material goalMat;
     public Toggle colorblindMode;
-	public Button playButton;
-	public Button quitButton;
+    // Start is called before the first frame update
+    void Start()
+    {
 
+    }
 
-	void Start()
-	{
-		quitButton.onClick.AddListener(QuitMaze);
-		playButton.onClick.AddListener(PlayMaze);
-	}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void PlayMaze()
     {
         if (colorblindMode.isOn)
@@ -26,17 +28,12 @@ public class MainMenu : MonoBehaviour
             trapMat.color = new Color32(255, 112, 0, 1);
             goalMat.color = Color.blue;
         }
-        else
-        {
-            trapMat.color = Color.red;
-            goalMat.color = Color.green;
-        }
-        SceneManager.LoadScene("maze");
+        SceneManager.LoadScene("Maze");
     }
 
     public void QuitMaze()
     {
-        Application.Quit();
         Debug.Log("Quit Game");
+        Application.Quit();
     }
 }

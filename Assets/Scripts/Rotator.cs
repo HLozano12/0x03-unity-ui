@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    public float mps = 45.0f;
-    ///<summary> Start should be called before first frame</summary>
+
+    public float degreesPerSecond = 45.0f;
+
+    // Start is called before the first frame update
     void Start()
     {
+        
     }
 
-    ///<summary> Once per frame update, I hope, causing coin to spin</summary>
+    // Update is called once per frame
     void Update()
     {
-        transform.Rotate(mps * Time.deltaTime, 0, 0);
+       transform.Rotate(degreesPerSecond * Time.deltaTime, 0, 0); 
     }
 }

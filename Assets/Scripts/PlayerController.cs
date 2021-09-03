@@ -4,100 +4,75 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary> Starts up the Player </summary>
 public class PlayerController : MonoBehaviour
 {
-	public int score = 0;
-	public int health = 5;
-	public float speed = 5.0F;
-	public Image endScreen;
+    public Image endScreen;
     public Text endText;
     public Text scoreText;
     public Text healthText;
-	public Image WinLoseBG;
-	public Text WinLoseText;
+    public float speed = 5.0f;
+    private int score = 0;
+    public int health = 5;
 
-	public Rigidbody rb;
+    private Rigidbody rb;
 
-	void Start()
-	{
-		SetHealthText();
-		rb = GetComponent<Rigidbody>();
-	}
+    // Start is called before the first frame update
+    void Start()
+    {
+        SetHealthText();
+        rb = GetComponent<Rigidbody>();
+    }
 
-	void Update() 
-	{
-		if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("menu");
-        }
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+		float moveVertical = Input.GetAxis("Vertical");
+
+		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+		rb.AddForce(movement * speed);
+    }
+
+    void Update()
+    {
         if (health <= 0)
         {
-            // Debug.Log("Game Over!");
-            WinLoseBG.gameObject.SetActive(true);
-            WinLoseText.gameObject.SetActive(true);
-            WinLoseText.text = "Game Over!";
-            WinLoseText.color = Color.white;
-            WinLoseBG.color = Color.red;
-            StartCoroutine(LoadScene(3));
+            endScreen.gameObject.SetActive(true);
+            endText.text = "Game Over!";
+            StartCoroutine(LoadScene(3.0F));
         }
     }
 
-	///<summary> WASD or Arrow Keys uesed </summary>
-	void FixedUpdate()
-	{
-		if ( Input.GetKey("d"))
-        {
-            rb.AddForce(speed * Time.deltaTime, 0, 0);
-        }
-        if ( Input.GetKey("a"))
-        {
-            rb.AddForce(-speed * Time.deltaTime, 0, 0);
-        }
-        if ( Input.GetKey("w"))
-        {
-            rb.AddForce(0, 0, speed * Time.deltaTime);
-        }
-        if ( Input.GetKey("s"))
-        {
-            rb.AddForce(0, 0, -speed * Time.deltaTime);
-        }
-	}
-
-	void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-		// should increment value of score
         if (other.gameObject.CompareTag("Pickup"))
         {
             score++;
             // Debug.Log($"Score: {score}");
-			SetScoreText();
-			Destroy(other.gameObject);
+            SetScoreText();
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Trap"))
         {
             health--;
-			SetHealthText();
+            SetHealthText();
             // Debug.Log($"Health: {health}");
         }
         if (other.gameObject.CompareTag("Goal"))
         {
             SetWin();
-			// Debug.Log("You win!");
+            // Debug.Log("You win!");
         }
     }
 
-	void SetScoreText()
-	{
-		scoreText.text = $"Score: {score}";
-	}
-
-	void SetHealthText()
+    IEnumerator LoadScene(float seconds)
     {
-        healthText.text = $"Health: {health}";
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("maze");
     }
 
-	void SetWin()
+    void SetWin()
     {
         endScreen.gameObject.SetActive(true);
         endScreen.color = Color.green;
@@ -106,9 +81,13 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(LoadScene(3.0F));
     }
 
-	IEnumerator LoadScene(float seconds)
+    void SetScoreText()
     {
-        yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene("maze");
+        scoreText.text = $"Score: {score}";
+    }
+
+    void SetHealthText()
+    {
+        healthText.text = $"Health: {health}";
     }
 }
