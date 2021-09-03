@@ -177,8 +177,9 @@ MonoBehaviour:
   trapMat: {fileID: 2100000, guid: 0e69f9933b36f2046a4103e2189b604c, type: 2}
   goalMat: {fileID: 2100000, guid: 2655e0c317291c746813b34227865764, type: 2}
   colorblindMode: {fileID: 1531134408}
-  playButton: {fileID: 387791590}
-  quitButton: {fileID: 1186885729}
+  Play: {fileID: 387791590}
+  Quit: {fileID: 1186885729}
+  Options: {fileID: 1875196422}
 --- !u!1 &229146171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,10 +1040,10 @@ RectTransform:
   m_Father: {fileID: 1531134407}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: -0.5}
-  m_SizeDelta: {x: -5, y: -3}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 77.5, y: 0}
+  m_SizeDelta: {x: 155, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157592253
 MonoBehaviour:
@@ -1575,7 +1576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 128.1, y: -10}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1804874743
@@ -1790,7 +1791,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1972227376}
+      - m_Target: {fileID: 74811934}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
