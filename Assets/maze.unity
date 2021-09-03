@@ -7431,16 +7431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3269f0380b3fc4d94ba7507078235e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  health: 5
-  speed: 5
   endScreen: {fileID: 2122617034}
   endText: {fileID: 162030464}
   scoreText: {fileID: 292099860}
   healthText: {fileID: 1721649618}
-  WinLoseBG: {fileID: 2122617034}
-  WinLoseText: {fileID: 162030464}
-  rb: {fileID: 1972815302}
+  speed: 5
+  health: 5
 --- !u!1 &1983553654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8449,7 +8445,7 @@ PrefabInstance:
     - target: {fileID: 2891101663037250063, guid: dbd20122325f29b4dac3f7216dcc4164,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.26
+      value: -1.440183
       objectReference: {fileID: 0}
     - target: {fileID: 2891101663037250063, guid: dbd20122325f29b4dac3f7216dcc4164,
         type: 3}
